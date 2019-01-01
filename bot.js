@@ -73,4 +73,4 @@ client.on('message', (message) => {
        return;
    }
    
-}).listen(process.env.PORT || 5000)
+})
