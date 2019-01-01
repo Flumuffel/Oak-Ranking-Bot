@@ -1,50 +1,5 @@
 // this code was given to me by 1988_YumChocolate from the ROBLOX API Server, all credits (as far as I know) go to him
-var http = require('http');
- var fs = require('fs');
- var path = require('path');
 
- http.createServer(function (request, response) {
-
-    console.log('request starting for ');
-    console.log(request);
-
-    var filePath = '.' + request.url;
-    if (filePath == './')
-        filePath = './index.html';
-
-    console.log(filePath);
-    var extname = path.extname(filePath);
-    var contentType = 'text/html';
-    switch (extname) {
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
-    }
-
-    path.exists(filePath, function(exists) {
-
-        if (exists) {
-            fs.readFile(filePath, function(error, content) {
-                if (error) {
-                    response.writeHead(500);
-                    response.end();
-                }
-                else {
-                    response.writeHead(200, { 'Content-Type': contentType });
-                    response.end(content, 'utf-8');
-                }
-            });
-        }
-        else {
-            response.writeHead(404);
-            response.end();
-        }
-    });
-
- }).listen(5000);
 const roblox = require('noblox.js')
 const Discord = require('discord.js')
 const client = new Discord.Client();
@@ -52,7 +7,7 @@ var token = "NTI5MDgxNzgwODUxMTc5NTQ3.DwuVXw.4WFK1KWszYPU9m8n_iC3a9GzGzI";
 
 client.login(token)
 
-var cookie = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_8276A0A5A08DD8C939CA4D0AA2837F2C38793BD7A287A3CA6FC5275E70DB15264EE294356BA5473BD9EE2A3B2D3DEF08AFC4520F0265F879E30E31E83E4BB71EBEAFBD3F4D8FF1190C7FB4F7E17743E915315E69C336FD0EBF06D38CD1A675E7CBF0F3CF41B2A241D35A666C3AEA6EEA3B503FC5AF6D279CF62144B134AF419C8464FFD3D573AB346E4AA15FFB920162B71FDF341A55145A49178F7FBF6EBADC6A9254A9DC0F8154A13275E1B2853FE692EAF0523A3B2E832B9EA4B48681ABFA66386C786D60D535B57BE7FFF2A6D319B914E012676918BB9CAEE11FE16DA3A766698C9EE5C0BAE832D285696A3A941D68189955C4CAEBD0EADDE894647343981ECBC5A3552927EC19673E2410DE319C647DE4EF1B0ADB498B6294BA19493EA38A97101E";
+var cookie = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_D7B30A51FF9AD19169B843C2DCA6C3B87CEF3779A3E3A46B809D9C1798E94BDE08C462F6FD103FD5267FD6B5C2069863F405EDC2D8347EBE82A59596EBEE17ADC9B966D7881C3AB43C27E7FAD43ED1D841E2DB4803CF95F4D101C1E934BFE1A05383971B6BDDC9D557AA08E2F9092AAAA44A7AD5F259CB2DBEE04B102666BD807080561899E2FFE686D13F330235CB56CA8F9D2120EF24906C2B99B974A367DE2DEC55264D660CACF0CA9E463D77436C8B4426D52739EB2474C6DA40B86D79C5745314F3BBC583BA97A464E603F7DC15E6EDCB1B0D5DB080827321DCFF081DC508909C25CB5AB4F9C55A21219DF661F5E5721C29751A26E087C1EB8D0EE3D44CED2437C0FEEB4FF274F335A600731BEB24616E424AE6E70ED1AE5189291F1FA741C35A62";
 
 var prefix = 'o!';
 var groupId = 4560058;
