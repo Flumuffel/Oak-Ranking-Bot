@@ -10,6 +10,7 @@ var token = "NTI5MDgxNzgwODUxMTc5NTQ3.DwuVXw.4WFK1KWszYPU9m8n_iC3a9GzGzI";
 client.login(token)
 
 var cookie = process.env.cookie;
+
 var prefix = 'o!';
 var groupId = 4560058;
 var maximumRank = 250;
